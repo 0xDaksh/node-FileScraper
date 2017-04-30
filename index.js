@@ -3,6 +3,8 @@ var express = require('express'),
     request = require('request'),
     fs = require('fs')
 
+// middleware
+app.use(express.static('static'))
 
 app.get('/', (req, res) => {
     let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress ||req.connection.socket.remoteAddress;
