@@ -7,7 +7,7 @@ var express = require("express"),
 app.use(express.static("static"));
 
 app.get('/', (req, res) => {
-    let ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress ||req.connection.socket.remoteAddress;
+    let ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress || req.socket.remoteAddress ||req.connection.socket.remoteAddress;
     res.send(`<h3>Welcome to Scraper ${ip}</h3>`);
 });
 
