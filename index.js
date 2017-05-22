@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 
 app.get('/scrape', (req, res) => {
     if(req.query.url && req.query.name) {
-      request(req.query.url).pipe(fs.createWriteStream(__dirname + "/static/" + req.query.name));
+      request(req.query.url).pipe(fs.writeFile(__dirname + "/static/" + req.query.name));
       res.send("<h3>Work has been Completed</h3>");
     } else {
       res.send("<h3>Please add the valid Query String</h3>");
